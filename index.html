@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Portfolio — Projects & Blog</title>
+  <meta name="description" content="A simple portfolio and blog template built with plain HTML, CSS and a little JavaScript." />
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa6bf;
+      --accent:#7dd3fc;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --max-width:1100px;
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#071024 120%);color:#e6eef8}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav{display:flex;gap:18px;align-items:center}
+    .button{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:8px 12px;border-radius:10px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:28px}
+    .intro h1{margin:0;font-size:2.1rem;line-height:1.05}
+    .intro p{color:var(--muted);margin-top:10px}
+
+    .profile-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;gap:12px}
+    .avatar{width:120px;height:120px;border-radius:18px;background:linear-gradient(135deg,#06b6d4,#7c3aed)}
+    .meta{color:var(--muted);text-align:center}
+
+    /* Sections */
+    section{margin-top:32px}
+    h2{margin:0 0 12px 0}
+
+    /* Projects grid */
+    .projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+    .project{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .project h3{margin:0 0 8px 0}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;color:var(--muted);font-size:0.85rem}
+
+    /* Blog list */
+    .blog-list{display:grid;gap:12px}
+    .post{display:flex;gap:14px;align-items:flex-start;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
+    .post .thumb{width:94px;height:64px;border-radius:8px;background:linear-gradient(135deg,#34d399,#60a5fa)}
+    .post h4{margin:0;font-size:1rem}
+    .post p{margin:6px 0 0 0;color:var(--muted);font-size:0.92rem}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 320px;gap:16px}
+    form{display:flex;flex-direction:column;gap:10px}
+    input,textarea{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:10px;border-radius:8px;color:inherit}
+    button[type="submit"]{padding:10px;border-radius:10px;border:0;background:linear-gradient(90deg,#06b6d4,#6366f1);color:#05202b;font-weight:600}
+
+    /* Footer */
+    footer{text-align:center;color:var(--muted);margin:36px 0 10px}
+
+    /* Responsive */
+    @media (max-width:920px){
+      .hero{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">MG</div>
+        <div>
+          <div style="font-weight:700">Morgan Green</div>
+          <div style="font-size:0.85rem;color:var(--muted)">Software engineer • Data visualizer</div>
+        </div>
+      </div>
+
+      <nav aria-label="Primary navigation">
+        <a class="button" href="#projects">Projects</a>
+        <a class="button" href="#blog">Blog</a>
+        <a class="button" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="intro-heading">
+        <div class="intro">
+          <h1 id="intro-heading">Hi — I'm Morgan. I build delightful web apps and visual tools.</h1>
+          <p>I craft interactive interfaces, write about design and engineering, and occasionally experiment with data visualizations. I like clean UI, tiny animations, and making complex systems feel approachable.</p>
+
+          <p style="margin-top:18px"><a href="#projects" class="button">See projects</a> <a href="#blog" class="button" style="margin-left:8px">Read posts</a></p>
+        </div>
+
+        <aside class="profile-card" aria-labelledby="profile-name">
+          <div class="avatar" role="img" aria-label="Profile avatar"></div>
+          <div id="profile-name" style="font-weight:700">Morgan Green</div>
+          <div class="meta">Seattle, WA • Open to freelance</div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <a class="tag" href="#">GitHub</a>
+            <a class="tag" href="#">LinkedIn</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Selected Projects</h2>
+        <div class="projects">
+          <article class="project">
+            <h3>Interactive City Explorer</h3>
+            <p style="margin:0 0 8px 0;color:var(--muted)">A map-based visualization that surfaces neighborhood statistics and transit lines.</p>
+            <div class="tags"><span class="tag">JavaScript</span><span class="tag">D3</span><span class="tag">Mapbox</span></div>
+          </article>
+
+          <article class="project">
+            <h3>Image Segmentation Tool</h3>
+            <p style="margin:0 0 8px 0;color:var(--muted)">A small web app that lets biologists annotate and download segmentation masks.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">Canvas</span><span class="tag">Python</span></div>
+          </article>
+
+          <article class="project">
+            <h3>Blog Engine</h3>
+            <p style="margin:0 0 8px 0;color:var(--muted)">A minimalist static-site blog generator with markdown support.</p>
+            <div class="tags"><span class="tag">Node</span><span class="tag">Markdown</span></div>
+          </article>
+
+          <article class="project">
+            <h3>Realtime Collaboration</h3>
+            <p style="margin:0 0 8px 0;color:var(--muted)">Prototype for shared whiteboarding with CRDT-based syncing.</p>
+            <div class="tags"><span class="tag">WebRTC</span><span class="tag">CRDT</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="blog" aria-labelledby="blog-heading">
+        <h2 id="blog-heading">Latest Posts</h2>
+        <div class="blog-list">
+          <article class="post">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <h4><a href="#">Designing small, useful animations</a></h4>
+              <p>Why micro-interactions matter — and how to design them without overhead.</p>
+            </div>
+          </article>
+
+          <article class="post">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <h4><a href="#">A practical intro to spatial transcriptomics</a></h4>
+              <p>Notes from building visualization pipelines for spatial gene-expression data.</p>
+            </div>
+          </article>
+
+          <article class="post">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <h4><a href="#">Tiny libraries I use every day</a></h4>
+              <p>Small, focused tools that beat bigger frameworks for quick projects.</p>
+            </div>
+          </article>
+        </div>
+
+        <p style="margin-top:12px"><a href="#blog">View all posts →</a></p>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact</h2>
+        <div class="contact">
+          <div>
+            <p style="color:var(--muted)">Interested in working together? Send a quick note — I'll usually reply within a few days.</p>
+            <form onsubmit="event.preventDefault(); alert('This is a demo form — wire it to an API or mail service.');">
+              <input type="text" placeholder="Your name" required />
+              <input type="email" placeholder="Email" required />
+              <textarea rows="5" placeholder="Message" required></textarea>
+              <button type="submit">Send message</button>
+            </form>
+          </div>
+
+          <aside style="background:var(--card);padding:12px;border-radius:12px">
+            <h3 style="margin-top:0">Get in touch</h3>
+            <p class="meta" style="margin:0 0 12px 0">Email: <a href="mailto:morgan@example.com">morgan@example.com</a></p>
+            <p style="margin:0;color:var(--muted)">Or follow me on GitHub / Twitter for short updates and project links.</p>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <small>© <span id="year"></span> Morgan Green — Built with HTML & CSS</small>
+    </footer>
+  </div>
+
+  <script>
+    // Small finishing touches
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // If you'd like, you can hook the post links to a markdown loader or fetch posts from an API.
+  </script>
+</body>
+</html>
